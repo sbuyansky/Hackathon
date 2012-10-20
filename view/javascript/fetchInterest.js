@@ -13,7 +13,7 @@ $(document).ready(function(e){
 	"Martial_Arts", "Musical", "Mystery", "Romance", "Sci-Fi", "Sports", 
 	"Thriller", "Western");
 	
-	var graphi_novel = new Array("Action/Adventure", "Children's", "Crime",
+	var graphic_novel = new Array("Action/Adventure", "Children's", "Crime",
 	"Fantasy", "General_Fication", "Graphic_Novels", "Historical_Fiction",
 	"Horror", "Humor", "Military/Espionage", "Mystery", "Religious",
 	"Romance", "Sci-Fi", "Short_Story", "Western", "Young_Adult",
@@ -44,13 +44,42 @@ $(document).ready(function(e){
 	var buttonArea=document.getElementById("buttonArea");
 	
 	$("#sport_rec").click(function(e){
+		var disableTarget = document.getElementById("sport_rec");
+		disableTarget.setAttribute("id", "sport_rec0" );
 		interest_category.push(sport_rec);
 		generateButtons();
 	});
-	$("clear_interest_buttons").click(function(e){
+	$("#movie_tv").click(function(e){
+		interest_category.push(movie_tv);
+		generateButtons();
+	});
+	$("#animals").click(function(e){
+		interest_category.push(animals);
+		generateButtons();
+	});
+	$("#art").click(function(e){
+		interest_category.push(art);
+		generateButtons();
+	});
+	$("#food_drink").click(function(e){
+		interest_category.push(food_drink);
+		generateButtons();
+	});
+	$("#music").click(function(e){
+		interest_category.push(music);
+		generateButtons();
+	});
+	$("#clear_interest_buttons").click(function(e){
 		interest_category = [];
 		deleteElement();
+		var disabledTarget = document.getElementById("sport_rec0");
+		disabledTarget.setAttribute("id", "sport_rec");
 	});
+	$(".autoGenButton").click(function(e){
+		alert(e);
+	});
+	
+	
 	function generateButtons(){
 		for(var i=0; i<interest_category.length;i++){
 			var interest_group = interest_category[i];
@@ -66,17 +95,19 @@ $(document).ready(function(e){
 	function insertElement(label) {
 	 var text = label;
 	 var newElement = document.createElement("BUTTON");
+	 newElement.value = label;
+	 newElement.setAttribute("class", "autoGenButton");
 	 var newText = document.createTextNode(text);
 	 newElement.appendChild(newText);
 	 buttonArea.appendChild(newElement);
 	}
 
 	function deleteElement() {
-	 while(div.hasChildNodes()) {
-		  var children = div.childNodes;
+	 while(buttonArea.hasChildNodes()) {
+		  var children = buttonArea.childNodes;
 		  var n = children.length - 1;
 		  var lastChild = children.item(n);
-		  div.removeChild(lastChild);
+		  buttonArea.removeChild(lastChild);
 	 }
 }
 });
