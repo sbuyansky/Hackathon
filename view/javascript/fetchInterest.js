@@ -40,6 +40,43 @@ $(document).ready(function(e){
 	"New_Age", "Opera", "R&B/Soul", "Reggae", "Rock", "Folk", "Soundtrack",
 	"World/Ethnic");
 	
+	var x=document.getElementById("interestDropBox");
+	var buttonArea=document.getElementById("buttonArea");
 	
+	$("#sport_rec").click(function(e){
+		interest_category.push(sport_rec);
+		generateButtons();
+	});
+	$("clear_interest_buttons").click(function(e){
+		interest_category = [];
+		deleteElement();
+	});
+	function generateButtons(){
+		for(var i=0; i<interest_category.length;i++){
+			var interest_group = interest_category[i];
+			if(interest_group == null){
+				return;
+			}
+			for(var j=0; j<interest_group.length; j++){
+				insertElement(interest_group[j]);
+			}
+		}
+	}
 	
+	function insertElement(label) {
+	 var text = label;
+	 var newElement = document.createElement("BUTTON");
+	 var newText = document.createTextNode(text);
+	 newElement.appendChild(newText);
+	 buttonArea.appendChild(newElement);
+	}
+
+	function deleteElement() {
+	 while(div.hasChildNodes()) {
+		  var children = div.childNodes;
+		  var n = children.length - 1;
+		  var lastChild = children.item(n);
+		  div.removeChild(lastChild);
+	 }
+}
 });

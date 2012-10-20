@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Dynamically Generated HTML</title>
+<script language="JavaScript">
+function initializeDiv() {
+ div = document.getElementById("testdiv")
+}
+function insertElement() {
+ var tagIX = document.forms["genform"].elements["elementType"].selectedIndex;
+ var tagName = "p";
+ if(tagIX == 1) 
+    tagName = "h1";
+ else if(tagIX == 2) 
+    tagName = "blockquote";
+ else if(tagIX == 3) 
+    tagName = "pre";
+    
+ var text = document.forms["genform"].elements["ta"].value;
+ var newElement = document.createElement(tagName);
+ var newText = document.createTextNode(text);
+ newElement.appendChild(newText);
+ div.appendChild(newElement);
+}
+
+function deleteElement() {
+ if(div.hasChildNodes()) {
+      var children = div.childNodes;
+      var n = children.length - 1;
+      var lastChild = children.item(n);
+      div.removeChild(lastChild);
+ }
+}
+</script>
+</head>
+<body onload="initializeDiv()">
+<h1 align="center">Dynamically Generated HTML</h1>
+<hr align="center">
+<div id="testdiv">
+</div>
+<hr align="center">
+<form name="genform">
+<p>
+<b>Tag: </b>
+<select name="elementType" size="1">
+<option selected="true">P
+<option>H1
+<option>BLOCKQUOTE
+<option>PRE
+</select>
+<input type="button" value="Insert element" onclick="insertElement()">
+<input type="button" value="Delete element" onclick="deleteElement()"></p>
+<textarea name="ta" rows="5" cols="40">
+Sample text
+</textarea>
+</form>
+</body>
+</html>
