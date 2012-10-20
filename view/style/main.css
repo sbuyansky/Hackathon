@@ -1,0 +1,12 @@
+
+.messageboard{	
+	color: #000000;
+}
+
+.messageboard p{
+	color: #000000;	
+	background-color: #eeeeee;
+	padding: 30px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
