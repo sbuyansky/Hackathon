@@ -136,8 +136,17 @@
 			</div>
 			<div class="modal-body">
 			<form>
-				Interest: <input type="text" name="firstname"><br>
-				Last name: <input type="text" name="lastname">
+				<script>
+					var xmlhttp;
+					if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp=new XMLHttpRequest();
+					}
+					else
+					{// code for IE6, IE5
+					  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+				</script>
 			</form> 
 			<p>You can add some text here.</p>		        
 			</div>
