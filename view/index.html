@@ -43,15 +43,34 @@
           <div class="hero-unit">
             <h1>BFriend</h1>
             <br /><br />
-            <p>BeFriend is a website that helps people connect with people they don't know but have highest similarity. It help you find the friends outside of your social network.</p>
+            <p>BFriend is a website that helps people connect with people they don't know but have highest similarity. It help you find the friends outside of your social network.</p>
           </div>
          </div>
     </div><!--/.fluid-container-->
     <div style="display:none"><div id="signIn">
-    
+    	<form method="post">
+        	 <label for="email">Email: </label>
+             <input id="email" name = "email" type="email" required />
+             <label for="password">Password: </label>
+             <input id = "password" name = "password" type = "password" required />
+             <a class="btn" href="#">Submit &raquo;</a>
+        </form>
     </div></div>
 	<div style="display:none"><div id="signUp">
-    	
+    	<form method="post">
+        	<label for="last_name">Last Name: </label>
+            <input id="last_name" type="text" name = "last_name" required />
+            <label for="first_name">First Name: </label>
+            <input id="first_name" type="text" name = "first_name" required />
+            <br />
+            <label for="email">Email: </label>
+            <input id="email" name = "email" type="email" required />
+            <label for ="gender">Gender: </label>
+            <div class="btn-group">
+            	<button class="btn" name="Gender" value="male">Male</button>
+  				<button class="btn" name="Gender" value="female">Female</button>
+			</div>
+        </form>
     </div></div>
   </body>
 </html>

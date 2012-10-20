@@ -9,6 +9,8 @@ $(document).ready(function(e) {
         $(this).addClass("active");
     });
 	$("a#inline").fancybox({
-		'hideOnContentClick': true
+		'hideOnContentClick': true,
+		'width': 800,
+		'height': 800
 	});
 });
