@@ -30,7 +30,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li id = "signin"><a id="sign1" href="#signIn">Sign In</a></li>
-              <li id = "signup"><a id="sign1" href="#signUp">Sign up</a></li>
+              <li id = "signup"><a id="sign2" href="#signUp">Sign Up</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -48,7 +48,7 @@
          </div>
     </div><!--/.fluid-container-->
     <div style="display:none"><div id="signIn">
-    	<form method="post" id="signin">
+    	<form method="post" id="signIn_form">
         	 <label for="email">Email: </label>
              <input id="email" name = "email" type="email" required />
              <label for="password">Password: </label>
@@ -56,27 +56,33 @@
              <a class="btn btn-success" href="#">Submit &raquo;</a>
         </form>
     </div></div>
-	<div style="display:none"><div id="signUp">
-    	<form method="post" id = "signup">
-        	<label for="last_name">Last Name: </label>
-            <input id="last_name" type="text" name = "last_name" required />
-            <label for="first_name">First Name: </label>
-            <input id="first_name" type="text" name = "first_name" required />
-            <br />
-            <label for="email">Email: </label>
-            <input id="email" name = "email" type="email" required />
-            <label for="password">Password: </label>
-            <input id="password" name = "password" type="password" required />
-            <label for ="gender">Gender: </label>
-            <div class="btn-group">
-            	<button id ="male" class="btn" name="Gender" value="male">Male</button>
-  				<button id = "female" class="btn" name="Gender" value="female">Female</button>
-			</div>
-            <br />
-            <label for="birthdate">Birthdate : </label>
-            <input type="date" name = "birthdate" id = "birthdate" />
-        </form>
-    </div></div>
+	<div style="display:none">
+    	<div id="signUp">
+    		<form method="post" id = "signUp_form">
+    	    	<label for="last_name">Last Name: </label>
+    	        <input id="last_name" type="text" name = "last_name" max = "20" placeholder="this is a required field" required />
+    	        <label for="first_name">First Name: </label>
+    	        <input id="first_name" type="text" name = "first_name" placeholder="this is a required field" max = "20" required />
+    	        <br />
+    	        <label for="email">Email: </label>
+    	        <input id="foo" name = "email" type="email" max = "100" placeholder="this is a required field" required />
+    	        <label for="password">Password: </label>
+    	        <input id="password" name = "password" type="password" max = "30" placeholder="this is a required field" required />
+    	        <label for ="gender">Gender: </label>
+    	        <div class="btn-group">
+    	        	<button id ="male" class="btn" name="Gender" value="male">Male</button>
+  					<button id = "female" class="btn" name="Gender" value="female">Female</button>
+				</div>
+       		     <br />
+        	    <label for="birthdate">Birthdate : </label>
+        	    <input type="date" name = "birthdate" id = "birthdate" placeholder="this is a required field" max = "15" />
+        		<label for="about">About me</label>
+        	    <textarea rows="10" cols="3" id = "about" name="about"></textarea>
+                <br />
+                <a  id = "Continue"class="btn btn-success" href="#">Continue &raquo;</a>
+        	</form>
+    	</div>
+    </div>
   </body>
 </html>
 
