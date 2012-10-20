@@ -1,4 +1,5 @@
 $(document).ready(function(e){
+	var selected_interest = new Array();
 	var interest_category = new Array();
 	
 	var sport_rec = new Array("Basketball", "Baseball", "Cheerleading",
@@ -13,10 +14,10 @@ $(document).ready(function(e){
 	"Martial_Arts", "Musical", "Mystery", "Romance", "Sci-Fi", "Sports", 
 	"Thriller", "Western");
 	
-	var graphic_novel = new Array("Action/Adventure", "Children's", "Crime",
+	var books_magazines = new Array("Action/Adventure", "Children's", "Crime",
 	"Fantasy", "General_Fication", "Graphic_Novels", "Historical_Fiction",
 	"Horror", "Humor", "Military/Espionage", "Mystery", "Religious",
-	"Romance", "Sci-Fi", "Short_Story", "Western", "Young_Adult",
+	"Romance", "Short_Story", "Western", "Young_Adult",
 	"Art/Photography", "Biography/Memoirs", "Cookbooks", "Cultural/Social_Issues",
 	"Current Affairs/Politics", "Food_and_Lifestyle", "Gardening", "History",
 	"Journalism", "Nature", "Psychology", "Reference", "Science_&_Tech", 
@@ -44,48 +45,76 @@ $(document).ready(function(e){
 	var buttonArea=document.getElementById("buttonArea");
 	
 	$("#sport_rec").click(function(e){
+		var h = new Object();
 		document.getElementById("sport_rec").setAttribute("id", "sport_rec0" );
-		interest_category.push(sport_rec);
+		h["Sport_&_Recreation"] = sport_rec;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#movie_tv").click(function(e){
 		document.getElementById("movie_tv").setAttribute("id", "movie_tv0");
-		interest_category.push(movie_tv);
+		var h = new Object();
+		h["Movies/TV"] = movie_tv;
+		interest_category.push(h);
+		generateButtons();
+	});
+	$("#books_magazines").click(function(e){
+		document.getElementById("books_magazines").setAttribute("id", "books_magazines0");
+		var h = new Object();
+		h["Books/Magazines"] = books_magazines;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#animals").click(function(e){
 		document.getElementById("animals").setAttribute("id", "animals0");
-		interest_category.push(animals);
+		var h = new Object();
+		h["Animals"] = animals;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#art").click(function(e){
 		document.getElementById("art").setAttribute("id", "art0");
-		interest_category.push(art);
+		var h = new Object();
+		h["Art"] = art;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#food_drink").click(function(e){
 		document.getElementById("food_drink").setAttribute("id", "food_drink0");
-		interest_category.push(food_drink);
+		var h = new Object();
+		h["Food/Drink"] = food_drink;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#music").click(function(e){
 		document.getElementById("music").setAttribute("id", "music0");
-		interest_category.push(music);
+		var h = new Object();
+		h["Music"] = music;
+		interest_category.push(h);
 		generateButtons();
 	});
 	$("#clear_interest_buttons").click(function(e){
 		interest_category = [];
+		selected_interest = [];
 		deleteElement();
 		resetIDBack();
-		
 	});
-	$(".autoGenButton").click(function(e){
-		alert("yay");
+	$("#submit_interest").click(function(e){
+		console.log(selected_interest);
 	});
+	$(document).on("click",".autoGenButton", function(e){
+		var temp_interest = e.target;
+		var h = new Object();
+		h[temp_interest.getAttribute("category")] = temp_interest.value;
+		selected_interest.push(h);
+		temp_interest.setAttribute("class", "btn btn-danger");
+	});
+	
 	
 	function resetIDBack(){
 		document.getElementById("sport_rec0").setAttribute("id", "sport_rec");
 		document.getElementById("movie_tv0").setAttribute("id", "movie_tv");
+		document.getElementById("books_magazines0").setAttribute("id", "books_magazines")
 		document.getElementById("animals0").setAttribute("id", "animals");
 		document.getElementById("art0").setAttribute("id", "art");
 		document.getElementById("food_drink0").setAttribute("id", "food_drink");
@@ -93,27 +122,30 @@ $(document).ready(function(e){
 	}
 	function generateButtons(){
 		for(var i=0; i<interest_category.length;i++){
-			var interest_group = interest_category[i];
-			if(interest_group == null){
-				return;
+			var hash = interest_category[i];
+			for(var k in hash){
+				var interest_group = hash[k];
+				if(interest_group == null){
+					return;
+				}
+				for(var j=0; j<interest_group.length; j++){
+					insertElement(k, interest_group[j]);
+				}
 			}
-			for(var j=0; j<interest_group.length; j++){
-				insertElement(interest_group[j]);
-			}
+			
 		}
 	}
 	
-	function insertElement(label) {
+	function insertElement(k, label) {
 	 var text = label;
-	 var newElement = document.createElement("input");
+	 var newElement = document.createElement("BUTTON");
 	 newElement.value = label;
-	 newElement.type = 'checkbox'
 	 newElement.setAttribute("class", "autoGenButton");
+	 newElement.setAttribute("category", k);
+	 
 	 var newText = document.createTextNode(text);
 	 newElement.appendChild(newText);
 	 buttonArea.appendChild(newElement);
-	 buttonArea.appendChild(newText);
-	 buttonArea.appendChild("  ");
 	}
 
 	function deleteElement() {
