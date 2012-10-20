@@ -15,3 +15,14 @@ body{
 .navbar .nav{
 	float:right;	
 }
+form {
+	margin: 0px;	
+}
+form #signup{
+	width: 800px;
+	height: 700px;	
+}
+form #signin{
+	width: 800px;
+	height: 700px;	
+}

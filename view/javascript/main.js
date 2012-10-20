@@ -8,9 +8,27 @@ $(document).ready(function(e) {
 		$("#signin").removeClass("active");
         $(this).addClass("active");
     });
-	$("a#inline").fancybox({
+	$("#male").click(function(e){
+		$(this).addClass("active");
+		if($("#female").hasClass("active"))
+		{
+			$("#female").removeClass("active");	
+		}
+	});
+	$("#female").click(function(e){
+		$(this).addClass("active");
+		if($("#male").hasClass("active"))
+		{
+			$("#male").removeClass("active");	
+		}
+	});
+	$("a#sign2").fancybox({
 		'hideOnContentClick': true,
-		'width': 800,
+		'autoSize': false,
+		'width': 600,
 		'height': 800
+	});
+	$("a#sign1").fancybox({
+		'hideOnContentClick': true,
 	});
 });

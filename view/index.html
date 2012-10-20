@@ -29,8 +29,8 @@
           <a class="brand" href="#">BFriend</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li id = "signin"><a id="inline" href="#signIn">Sign In</a></li>
-              <li id = "signup"><a id="inline" href="#signUp">Sign up</a></li>
+              <li id = "signin"><a id="sign1" href="#signIn">Sign In</a></li>
+              <li id = "signup"><a id="sign1" href="#signUp">Sign up</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -48,16 +48,16 @@
          </div>
     </div><!--/.fluid-container-->
     <div style="display:none"><div id="signIn">
-    	<form method="post">
+    	<form method="post" id="signin">
         	 <label for="email">Email: </label>
              <input id="email" name = "email" type="email" required />
              <label for="password">Password: </label>
              <input id = "password" name = "password" type = "password" required />
-             <a class="btn" href="#">Submit &raquo;</a>
+             <a class="btn btn-success" href="#">Submit &raquo;</a>
         </form>
     </div></div>
 	<div style="display:none"><div id="signUp">
-    	<form method="post">
+    	<form method="post" id = "signup">
         	<label for="last_name">Last Name: </label>
             <input id="last_name" type="text" name = "last_name" required />
             <label for="first_name">First Name: </label>
@@ -65,11 +65,16 @@
             <br />
             <label for="email">Email: </label>
             <input id="email" name = "email" type="email" required />
+            <label for="password">Password: </label>
+            <input id="password" name = "password" type="password" required />
             <label for ="gender">Gender: </label>
             <div class="btn-group">
-            	<button class="btn" name="Gender" value="male">Male</button>
-  				<button class="btn" name="Gender" value="female">Female</button>
+            	<button id ="male" class="btn" name="Gender" value="male">Male</button>
+  				<button id = "female" class="btn" name="Gender" value="female">Female</button>
 			</div>
+            <br />
+            <label for="birthdate">Birthdate : </label>
+            <input type="date" name = "birthdate" id = "birthdate" />
         </form>
     </div></div>
   </body>
