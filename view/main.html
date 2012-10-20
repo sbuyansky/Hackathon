@@ -148,7 +148,17 @@
 					}
 				</script>
 			</form> 
-			<p>You can add some text here.</p>		        
+			<div class="btn-group">
+							<button class="btn">Interest</button>
+							<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a id="sport_rec">Sports &amp; Recreation</a></li>
+								<li><a id="movie_tv"></a></li>
+							</ul>
+			</div>
+			<p id="buttonArea">You can add some text here.</p>		        
 			</div>
 			<div class="modal-footer">
 			<a href="#" class="btn btn-success">Call to action</a>
@@ -158,8 +168,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		
 		<script src="../bootstrap/js/bootstrap-modal.js"></script>
+		<script src= "../bootstrap/js/bootstrap-dropdown.js">
 
 		<script src="javascript/geolocation.js"></script>
+		<script src="javascript/fetchInterest.js"></script>
+		
 	</div>
 	
   </body>
