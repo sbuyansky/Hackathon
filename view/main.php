@@ -3,7 +3,7 @@
 	$username = $_SESSION['username'];
 	if(!isset($username))
 	{
-		header('Location: http://www.atlaselect.com') ;
+		header('Location: http://www.atlaselect.com/index.html') ;
 	}
 ?>
 <!DOCTYPE html>

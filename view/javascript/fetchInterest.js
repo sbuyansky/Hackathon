@@ -100,7 +100,44 @@ $(document).ready(function(e){
 		resetIDBack();
 	});
 	$("#submit_interest").click(function(e){
+		var results_hash = new Object();
+		var keys = [];
 		console.log(selected_interest);
+		for(var key in selected_interest)
+		{
+			if(selected_interest.hasOwnProperty(key))
+			{
+				for(var i in selected_interest[key])
+				{
+					keys.push(i);
+				}
+			}
+		}
+		keys.sort();
+		var uniqueKey = keys.filter(function(elem, pos) {
+    		return keys.indexOf(elem) == pos;
+		});
+		for(var sorted_item in uniqueKey)
+		{
+			var array = [];
+			for(var j in selected_interest)
+			{
+						for (var firstKey in selected_interest[j]) break;
+						if(uniqueKey[sorted_item] == firstKey)
+						{
+								var current = selected_interest[j];
+								console.log(current[uniqueKey[sorted_item]]);
+								array.push(current[uniqueKey[sorted_item]]);
+								results_hash[uniqueKey[sorted_item]] = array;
+						}
+			}
+		}
+		var json = JSON.stringify(results_hash);
+		var url = "php/addInterest.php";
+			$.post(url,'json='+text,
+				function(data){
+				console.log("Data Loaded:" + data);	
+		},"text");
 	});
 	$(document).on("click",".autoGenButton", function(e){
 		var temp_interest = e.target;
