@@ -8,3 +8,10 @@ body{
 	margin-left: auto;
 	text-align: center;
 }
+.hero-unit{
+	margin-right:auto;
+	margin-left:auto;	
+}
+.navbar .nav{
+	float:right;	
+}
