@@ -1,6 +1,6 @@
 // JavaScript Document
-$(function(){
-	$("#signin").click(function(e) {
+$(document).ready(function(e) {
+   	$("#signin").click(function(e) {
 		$("#signup").removeClass("active");
         $(this).addClass("active");
     });
@@ -8,4 +8,7 @@ $(function(){
 		$("#signin").removeClass("active");
         $(this).addClass("active");
     });
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
 });
