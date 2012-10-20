@@ -44,36 +44,45 @@ $(document).ready(function(e){
 	var buttonArea=document.getElementById("buttonArea");
 	
 	$("#sport_rec").click(function(e){
-		var disableTarget = document.getElementById("sport_rec");
-		disableTarget.setAttribute("id", "sport_rec0" );
+		document.getElementById("sport_rec").setAttribute("id", "sport_rec0" );
 		interest_category.push(sport_rec);
 		generateButtons();
 	});
 	$("#movie_tv").click(function(e){
+		document.getElementById("movie_tv").setAttribute("id", "movie_tv0");
 		interest_category.push(movie_tv);
 		generateButtons();
 	});
 	$("#animals").click(function(e){
+		document.getElementById("animals").setAttribute("id", "animals0");
 		interest_category.push(animals);
 		generateButtons();
 	});
 	$("#art").click(function(e){
+		document.getElementById("art").setAttribute("id", "art0");
 		interest_category.push(art);
 		generateButtons();
 	});
 	$("#food_drink").click(function(e){
+		document.getElementById("food_drink").setAttribute("id", "food_drink0");
 		interest_category.push(food_drink);
 		generateButtons();
 	});
 	$("#music").click(function(e){
+		document.getElementById("music").setAttribute("id", "music0");
 		interest_category.push(music);
 		generateButtons();
 	});
 	$("#clear_interest_buttons").click(function(e){
 		interest_category = [];
 		deleteElement();
-		var disabledTarget = document.getElementById("sport_rec0");
-		disabledTarget.setAttribute("id", "sport_rec");
+		document.getElementById("sport_rec0").setAttribute("id", "sport_rec");
+		document.getElementById("movie_tv0").setAttribute("id", "movie_tv");
+		document.getElementById("animals0").setAttribute("id", "animals");
+		document.getElementById("art0").setAttribute("id", "art");
+		document.getElementById("food_drink0").setAttribute("id", "food_drink");
+		document.getElementById("music0").setAttribute("id", "music");
+		
 	});
 	$(".autoGenButton").click(function(e){
 		alert(e);
