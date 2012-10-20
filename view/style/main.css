@@ -1,8 +1,6 @@
-
 .messageboard{	
 	color: #000000;
 }
-
 .messageboard p{
 	color: #000000;	
 	background-color: #eeeeee;
@@ -10,11 +8,12 @@
 	margin-bottom: 15px;
 	font-weight: bold;
 }
-
 .profile_picture_large{
 	margin-bottom: 15px;
 }
-
+.hero-unit{
+	padding-top: 20px;	
+}
 .emptySpace{
 	margin-top: 30px;
 	margin-bottom: 30px;
