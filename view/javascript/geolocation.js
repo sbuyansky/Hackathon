@@ -1,17 +1,23 @@
 $(document).ready(function(e){
+	var x=document.getElementById("locationInfo");
 	
-	$('body').on('[data-toggle="scanLocation"]', function ( e ){
-		findLocation();
+	$("#scanLocation").click(function(e){
+		findLocation(x);
 	});
+	
+	function findLocation(x){
+		if (navigator.geolocation)
+		{
+		navigator.geolocation.getCurrentPosition(showPosition);
+		}
+		else{x.innerHTML="Geolocation is not supported by this browser.";}
+	}
+
+	function showPosition(position)
+	{
+		x.innerHTML="Latitude: " + position.coords.latitude + 
+		"<br>Longitude: " + position.coords.longitude;	
+
+	}
 });
 
-function findLocation(){
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var latLng = new google.maps.LatLng(
-        position.coords.latitude, position.coords.longitude);
-    var marker = new google.maps.Marker({position: latLng, map: map});
-    map.setCenter(latLng);
-	}, errorHandler);
-  }
-})
